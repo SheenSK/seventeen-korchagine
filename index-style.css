@@ -108,7 +108,7 @@ body {
   display: block;
   object-fit: contain;
   position: absolute;
-  mix-blend-mode: multiply;
+  
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
