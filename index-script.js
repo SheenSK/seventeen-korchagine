@@ -43,15 +43,6 @@
   // ----- PROJECT DATA -----
   let projects = [
     { 
-      title: 'Podcast Identity',
-      date: '2026',
-      category: 'concept',
-      image: 'podcast_id_1/template-website-1.jpg',
-      mobileImage: 'podcast_id_1/template-website-mobile.jpg',
-      hoverImage: 'podcast_id_2/img2.png',
-      link: 'podcast.html'
-    },
-    { 
       title: 'Light Fabrics',
       date: '2025',
       category: 'concept',
@@ -60,24 +51,8 @@
       hoverImage: 'light_fabrics/template-website.jpg',
       link: 'light_fabrics.html'
     },
-    { 
-      title: 'E-Traxx Düsseldorf',
-      date: '2026',
-      category: 'print',
-      image: 'etraxx/template-website.jpg',
-      mobileImage: 'etraxx/template-website-mobile-1.jpg',
-      hoverImage: 'image3.png',
-      link: 'etraxx.html'
-    },
-    { 
-      title: 'Music Venue Posters',
-      date: '2026',
-      category: 'concept',
-      image: 'event_posters/template-website.jpg',
-      mobileImage: 'event_posters/template-website-mobile.jpg',
-      hoverImage: 'lag/img2.png',
-      link: 'posters.html'
-    },
+
+
     { 
       title: 'A Question Of Privacy',
       date: '2025',
@@ -87,6 +62,7 @@
       hoverImage: 'privacy_book/zine_full8.jpg',
       link: 'privacy_book.html'
     },
+
     { 
       title: 'When Will I Be?',
       date: '2026',
@@ -96,6 +72,48 @@
       hoverImage: 'wwib_book/book-15.png',
       link: 'wwib_book.html'
     },
+
+            { 
+      title: 'Podcast Identity',
+      date: '2026',
+      category: 'concept',
+      image: 'podcast_id_1/template-website-1.jpg',
+      mobileImage: 'podcast_id_1/template-website-mobile.jpg',
+      hoverImage: 'podcast_id_2/img2.png',
+      link: 'podcast.html'
+    },
+
+        { 
+      title: 'Music Venue Posters',
+      date: '2026',
+      category: 'concept',
+      image: 'event_posters/template-website.jpg',
+      mobileImage: 'event_posters/template-website-mobile.jpg',
+      hoverImage: 'lag/img2.png',
+      link: 'posters.html'
+    },
+    
+
+        { 
+      title: 'Too Good Too Go',
+      date: '2024',
+      category: 'concept',
+      image: 'tgt/template-website.jpg',
+      mobileImage: 'tgt/template-website-mobile.jpg',
+      hoverImage: 'tgt/template-website-mobile.jpg',
+      link: 'tgtg.html'
+    },
+
+            { 
+      title: 'E-Traxx Düsseldorf',
+      date: '2026',
+      category: 'print',
+      image: 'etraxx/template-website.jpg',
+      mobileImage: 'etraxx/template-website-mobile-1.jpg',
+      hoverImage: 'image3.png',
+      link: 'etraxx.html'
+    },
+
     { 
       title: 'Last Moments Aggregate',
       date: '2025',
@@ -112,8 +130,9 @@
       image: 'ghost/template-website.jpg',
       mobileImage: 'ghost/template-website-mobile.jpg',
       hoverImage: 'image3.png',
-      link: 'ghost.html'
+      link: 'ghosts.html'
     },
+
     { 
       title: 'Kansas City Goons',
       date: '2026',
@@ -123,39 +142,23 @@
       hoverImage: 'image3.png',
       link: 'illustration_goons.html'
     },
-    { 
-      title: 'Too Good Too Go',
-      date: '2024',
-      category: 'concept',
-      image: 'image2.png',
-      mobileImage: 'image2-mobile.png',
+
+        { 
+      title: 'Pictures of Lee',
+      date: '2026',
+      category: 'art',
+      image: 'illustration1/template-website.jpg',
+      mobileImage: 'illustration1/template-website-mobile.jpg',
       hoverImage: 'image3.png',
-      link: 'work-print-pulse.html'
+      link: 'illustration_random.html'
     },
+
     { 
       title: 'Dancing Tiles Tool',
       date: '2026',
       category: 'video',
       image: 'elliott_smith/template-website.jpg',
       mobileImage: 'elliott_smith/template-website-mobile.jpg',
-      hoverImage: 'image3.png',
-      link: 'work-print-pulse.html'
-    },
-    { 
-      title: 'Circe Archiv - Menschen und Züge',
-      date: '2026',
-      category: 'video',
-      image: 'image2.png',
-      mobileImage: 'image2-mobile.png',
-      hoverImage: 'image3.png',
-      link: 'work-print-pulse.html'
-    },
-    { 
-      title: 'Miniature Torture Device',
-      date: '2024',
-      category: 'video',
-      image: 'image2.png',
-      mobileImage: 'image2-mobile.png',
       hoverImage: 'image3.png',
       link: 'work-print-pulse.html'
     },
