@@ -1,0 +1,22 @@
+addWork(
+  "My New Project", 
+  "art", 
+  "oil on canvas · 2026",
+  "project-new-1.jpg",  // thumbnail
+  "work-new.html",
+  ["project-new-1.jpg", "project-new-2.jpg", "project-new-3.jpg"] // all images
+)
+
+
+let projects = [
+  // 👇 NEW WORK GOES HERE (top of the list = top-left of mosaic)
+  { 
+    title: 'My New Project', 
+    category: 'art',          // art, print, web, or 3d
+    info: 'oil on canvas · 2026',
+    image: 'my-project-1.jpg',
+    link: 'work-my-project.html',
+    workImages: ['my-project-1.jpg', 'my-project-2.jpg', 'my-project-3.jpg']
+  },
+  // ... existing projects below ...
+];
