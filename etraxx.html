@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E-Traxx Postes and Postcards · seventeen korchagine</title>
+  <title>E-Traxx Posters and Postcards · seventeen korchagine</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -178,6 +178,14 @@
       margin-bottom: 2.5rem;
     }
 
+    /* Center 2-image grid */
+    .work-image-grid.two-images {
+      grid-template-columns: 1fr 1fr;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     /* Center single image in grid */
     .work-image-grid.single-image {
       grid-template-columns: 1fr;
@@ -202,7 +210,7 @@
       object-fit: cover;
     }
 
-    /* ----- CUSTOM IMAGE SIZES (bigger full-height) ----- */
+    /* ----- CUSTOM IMAGE SIZES ----- */
     .grid-item.small img {
       max-height: 250px;
       object-fit: cover;
@@ -223,12 +231,21 @@
       object-fit: cover;
     }
 
-    /* Full height - shows the entire image, no cropping */
+    /* Full height - desktop: shows entire image, mobile: fills frame */
+    .grid-item.full-height {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: whitesmoke;
+      overflow: hidden;
+    }
+
     .grid-item.full-height img {
-      max-height: none;
-      height: auto;
+      max-height: 700px;
       width: 100%;
+      height: auto;
       object-fit: contain;
+      display: block;
     }
 
     /* Full width - spans all 3 columns */
@@ -251,30 +268,20 @@
       object-fit: cover;
     }
 
-    /* ----- FILL FRAME (zoom + crop for photo.jpg) ----- */
+    /* ----- FILL FRAME (zoom + crop) ----- */
     .grid-item.fill-frame {
-      grid-column: span 2;
+      grid-column: span 1;
       overflow: hidden;
       position: relative;
+      min-height: 400px;
     }
 
     .grid-item.fill-frame img {
       width: 100%;
       height: 100%;
-      min-height: 500px;
+      min-height: 400px;
       object-fit: cover;
       display: block;
-    }
-
-    .grid-item.fill-frame.single {
-      grid-column: span 1;
-      max-width: 800px;
-      margin: 0 auto;
-      min-height: 400px;
-    }
-
-    .grid-item.fill-frame.single img {
-      min-height: 400px;
     }
 
     /* ----- SECTION TEXT BLOCK (centered, narrower) ----- */
@@ -316,26 +323,27 @@
       max-width: 650px;
       margin: 2.5rem auto 3.5rem auto;
     }
-.work-inquire {
-  display: inline-block;
-  font-size: 1rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  border: 1px solid #1a409f;
-  padding: 0.4rem 1.8rem;
-  background: transparent;
-  transition: 0.25s ease;
-  font-family: 'Inter', sans-serif;
-  color: #1a409f;
-  text-decoration: none;
-}
 
-.work-inquire:hover {
-  background: #1a409f;
-  color: whitesmoke;
-}
+    .work-inquire {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border: 1px solid #1a409f;
+      padding: 0.4rem 1.8rem;
+      background: transparent;
+      transition: 0.25s ease;
+      font-family: 'Inter', sans-serif;
+      color: #1a409f;
+      text-decoration: none;
+    }
+
+    .work-inquire:hover {
+      background: #1a409f;
+      color: whitesmoke;
+    }
 
     /* ----- FOOTER (centered, narrower) ----- */
     .work-footer {
@@ -410,6 +418,11 @@
         max-width: 100%;
       }
 
+      .work-image-grid.two-images {
+        grid-template-columns: 1fr 1fr;
+        max-width: 100%;
+      }
+
       .grid-item.full-width {
         grid-column: span 2;
       }
@@ -420,14 +433,15 @@
 
       .grid-item.fill-frame {
         grid-column: span 2;
+        min-height: 300px;
       }
 
       .grid-item.fill-frame img {
-        min-height: 350px;
+        min-height: 300px;
       }
 
-      .grid-item.fill-frame.single img {
-        min-height: 300px;
+      .grid-item.full-height img {
+        max-height: 500px;
       }
 
       .work-inquire-wrapper {
@@ -483,6 +497,11 @@
         grid-template-columns: 1fr;
       }
 
+      .work-image-grid.two-images {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
       .grid-item.full-width {
         grid-column: span 1;
       }
@@ -493,14 +512,45 @@
 
       .grid-item.fill-frame {
         grid-column: span 1;
+        min-height: 250px;
       }
 
       .grid-item.fill-frame img {
         min-height: 250px;
       }
 
-      .grid-item.fill-frame.single img {
-        min-height: 250px;
+      /* MOBILE: full-height images fill the frame (no gaps) */
+      .grid-item.full-height {
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: whitesmoke;
+        overflow: hidden;
+      }
+
+      .grid-item.full-height img {
+        max-height: none;
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* MOBILE: medium images fill the frame (no gaps) */
+      .grid-item.medium {
+        min-height: 300px;
+        overflow: hidden;
+      }
+
+      .grid-item.medium img {
+        max-height: none;
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+        object-fit: cover;
+        display: block;
       }
 
       .work-inquire {
@@ -517,7 +567,6 @@
       }
 
       .grid-item.small img { max-height: 250px; }
-      .grid-item.medium img { max-height: 350px; }
       .grid-item.large img { max-height: 450px; }
       .grid-item.tall img { max-height: 500px; }
       .grid-item.full-width img { max-height: 450px; }
@@ -535,7 +584,7 @@
   <div class="work-container">
     <!-- HEADER -->
     <div class="work-header">
-      <h1 class="work-title">Postes and Postcards for E-Traxx </h1>
+      <h1 class="work-title">Posters and Postcards for E-Traxx</h1>
 
       <div class="work-meta">Personal Engagement · Illustrator · 2026</div>
 
@@ -549,7 +598,7 @@
           <div class="thin-line"></div>
 
           <div class="work-extra-info">
-            <p>Personal Engagement <br> Illustrator </p>
+            <p>Personal Engagement <br /> Illustrator</p>
           </div>
         </div>
 
@@ -559,48 +608,62 @@
 
     <!-- INQUIRE BUTTON -->
     <div class="work-inquire-wrapper">
-      <a href="https://www.instagram.com/etraxxduesseldorf/?hl=de" class="work-inquire">E-Traxx Insta</a>
+      <a href="https://www.instagram.com/etraxxduesseldorf/?hl=de" class="work-inquire" target="_blank">E-Traxx Insta</a>
     </div>
 
-        <div class="work-image-grid single-image">
-      <div class="grid-item medium full-height">
-        <img src="etraxx/postcard1.png" alt="Poster template 2" />
+    <!-- IMAGE GRID ROW 1: 2 images (postcard1 + postcard) -->
+    <div class="work-image-grid two-images">
+      <div class="grid-item full-height">
+        <img src="etraxx/postcard1.png" alt="Postcard front" />
       </div>
+      <div class="grid-item full-height">
+        <img src="etraxx/postcard.png" alt="Postcard back" />
+      </div>
+    </div>
 
-      <div class="grid-item full-width">
-        <img src="etraxx/postcard.png" alt="Poster template 2" />
+    <!-- SECTION TEXT BLOCK 1 -->
+    <div class="work-section-text">
+      <span class="section-label">— Postcards —</span>
+      <p>Two postcards to promote this season's new car, Roxxy.</p>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- IMAGE GRID ROW 2: 2 images (img1 + img2) -->
+    <div class="work-image-grid two-images">
+      <div class="grid-item full-height">
+        <img src="etraxx/img1.png" alt="Poster design 1" />
+      </div>
+      <div class="grid-item full-height">
+        <img src="etraxx/img2.png" alt="Poster design 2" />
       </div>
     </div>
 
     <!-- SECTION TEXT BLOCK 2 -->
     <div class="work-section-text">
-      <span class="section-label">— Postcards —</span>
-      <p>Two postcards to promote this season's new car, Roxxy. </p>
+      <span class="section-label">— Posters —</span>
+      <p>Posters for Tag der offenen Tür.</p>
       <div class="section-line"></div>
     </div>
 
-    <div class="work-image-grid">
-              <div class="grid-item medium">
-        <img src="etraxx/img1.png" alt="Poster template 1" />
+    <!-- IMAGE GRID ROW 3: 1 image (img6, centered) -->
+    <div class="work-image-grid single-image">
+      <div class="grid-item">
+        <img src="etraxx/img6.png" alt="Poster full design" />
       </div>
-      <div class="grid-item medium">
-        <img src="etraxx/img2.png" alt="Poster template 1" />
+    </div>
+
+        <div class="work-image-grid single-image">
+      <div class="grid-item">
+        <img src="etraxx/img7.png" alt="Poster full design" />
       </div>
     </div>
 
         <!-- SECTION TEXT BLOCK 2 -->
     <div class="work-section-text">
-      <span class="section-label">— Posters —</span>
-      <p>Posters for Tag der offenen Tür. </p>
-      <div class="section-line"></div>
-    </div>
+      <span class="section-label">— Pictogramms —</span>
+      <p>Pictogramms for use on social media, on Canva, or as decoration.</p>
 
-        <div class="work-image-grid">
-              <div class="grid-item medium">
-        <img src="etraxx/img6.png" alt="Poster template 1" />
-      </div>
     </div>
-    
 
     <!-- FOOTER -->
     <div class="work-footer">

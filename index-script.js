@@ -42,23 +42,23 @@
 
   // ----- PROJECT DATA -----
   let projects = [
-    { 
-      title: 'Light Fabrics',
-      date: '2025',
-      category: 'concept',
-      image: 'light_fabrics/template-website.jpg',
-      mobileImage: 'light_fabrics/template-website-mobile.jpg',
-      hoverImage: 'light_fabrics/template-website.jpg',
-      link: 'light_fabrics.html'
-    },
 
+        { 
+      title: 'Video Reel',
+      date: '2026',
+      category: 'video',
+      image: 'reel/template-website.jpg',
+      mobileImage: 'reel/template-website-mobile.jpg',
+      hoverImage: 'image3.png',
+      link:  'https://youtu.be/IARy-qI5jPA'
+    },
 
     { 
       title: 'A Question Of Privacy',
       date: '2025',
       category: 'print',
       image: 'privacy_book/template-website.jpg',
-      mobileImage: 'privacy_book/template-website-mobile.jpg',
+      mobileImage: 'privacy_book/template-website-mobile-1.jpg',
       hoverImage: 'privacy_book/zine_full8.jpg',
       link: 'privacy_book.html'
     },
@@ -67,10 +67,20 @@
       title: 'When Will I Be?',
       date: '2026',
       category: 'print',
-      image: 'wwib_book/template-website.jpg',
-      mobileImage: 'wwib_book/template-website-mobile.jpg',
+      image: 'wwib_book/template-website-1.jpg',
+      mobileImage: 'wwib_book/template-website-mobile-1.jpg',
       hoverImage: 'wwib_book/book-15.png',
       link: 'wwib_book.html'
+    },
+
+            { 
+      title: 'Too Good Too Go',
+      date: '2024',
+      category: 'concept',
+      image: 'tgt/template-website-1.jpg',
+      mobileImage: 'tgt/template-website-mobile.jpg',
+      hoverImage: 'tgt/template-website-mobile.jpg',
+      link: 'tgtg.html'
     },
 
             { 
@@ -81,6 +91,17 @@
       mobileImage: 'podcast_id_1/template-website-mobile.jpg',
       hoverImage: 'podcast_id_2/img2.png',
       link: 'podcast.html'
+    },
+
+    
+        { 
+      title: 'Film Posters',
+      date: '2026',
+      category: 'concept',
+      image: 'film_posters/template-website.jpg',
+      mobileImage: 'film_posters/template-website-mobile.jpg',
+      hoverImage: 'lag/img2.png',
+      link: 'film_posters.html'
     },
 
         { 
@@ -94,16 +115,6 @@
     },
     
 
-        { 
-      title: 'Too Good Too Go',
-      date: '2024',
-      category: 'concept',
-      image: 'tgt/template-website.jpg',
-      mobileImage: 'tgt/template-website-mobile.jpg',
-      hoverImage: 'tgt/template-website-mobile.jpg',
-      link: 'tgtg.html'
-    },
-
             { 
       title: 'E-Traxx Düsseldorf',
       date: '2026',
@@ -112,6 +123,16 @@
       mobileImage: 'etraxx/template-website-mobile-1.jpg',
       hoverImage: 'image3.png',
       link: 'etraxx.html'
+    },
+
+        { 
+      title: 'Light Fabrics',
+      date: '2025',
+      category: 'concept',
+      image: 'light_fabrics/template-website.jpg',
+      mobileImage: 'light_fabrics/template-website-mobile.jpg',
+      hoverImage: 'light_fabrics/template-website.jpg',
+      link: 'light_fabrics.html'
     },
 
     { 
@@ -133,44 +154,6 @@
       link: 'ghosts.html'
     },
 
-    { 
-      title: 'Kansas City Goons',
-      date: '2026',
-      category: 'art',
-      image: 'illustration2/template-website.jpg',
-      mobileImage: 'illustration2/template-website-mobile.jpg',
-      hoverImage: 'image3.png',
-      link: 'illustration_goons.html'
-    },
-
-        { 
-      title: 'Pictures of Lee',
-      date: '2026',
-      category: 'art',
-      image: 'illustration1/template-website.jpg',
-      mobileImage: 'illustration1/template-website-mobile.jpg',
-      hoverImage: 'image3.png',
-      link: 'illustration_random.html'
-    },
-
-    { 
-      title: 'Dancing Tiles Tool',
-      date: '2026',
-      category: 'video',
-      image: 'elliott_smith/template-website.jpg',
-      mobileImage: 'elliott_smith/template-website-mobile.jpg',
-      hoverImage: 'image3.png',
-      link: 'work-print-pulse.html'
-    },
-    { 
-      title: 'SALEM - WEPT',
-      date: '2024',
-      category: 'video',
-      image: 'salem_weep/template-website.jpg',
-      mobileImage: 'salem_weep/template-website-mobile.jpg',
-      hoverImage: 'image3.png',
-      link: 'work-print-pulse.html'
-    },
   ];
 
   const workContainer = document.getElementById('workContainer');
@@ -178,6 +161,7 @@
   const filterItems = filterMenu.querySelectorAll('.filter-item');
   let currentFilter = 'all';
 
+  // ----- RENDER WORK ITEMS -----
   // ----- RENDER WORK ITEMS -----
   function renderWorks(filter = 'all') {
     workContainer.innerHTML = '';
@@ -197,7 +181,6 @@
       const img = document.createElement('img');
       img.className = 'work-image';
       
-      // Use mobile image if on mobile and it exists, otherwise fallback to desktop image
       let imageSrc;
       if (isMobile && p.mobileImage) {
         imageSrc = p.mobileImage;
@@ -208,7 +191,6 @@
       img.src = imageSrc;
       img.alt = p.title;
       img.onerror = function() {
-        // If mobile image fails, fallback to desktop image
         if (isMobile && p.mobileImage) {
           this.src = p.image || 'placeholder.jpg';
         } else {
@@ -220,16 +202,21 @@
       wrapper.appendChild(img);
 
       if (isMobile) {
-        // Mobile: Title and date always visible below image
+        // Mobile: Title with date on the same row
         const titleDiv = document.createElement('div');
         titleDiv.className = 'work-title-overlay';
-        titleDiv.textContent = p.title;
-        wrapper.appendChild(titleDiv);
         
-        const dateDiv = document.createElement('div');
-        dateDiv.className = 'work-date-overlay';
-        dateDiv.textContent = p.date;
-        wrapper.appendChild(dateDiv);
+        const titleSpan = document.createElement('span');
+        titleSpan.className = 'title-text';
+        titleSpan.textContent = p.title;
+        
+        const dateSpan = document.createElement('span');
+        dateSpan.className = 'date-text';
+        dateSpan.textContent = p.date;
+        
+        titleDiv.appendChild(titleSpan);
+        titleDiv.appendChild(dateSpan);
+        wrapper.appendChild(titleDiv);
       } else {
         // Desktop: Title and date appear on hover
         const titleOverlay = document.createElement('div');
@@ -243,10 +230,14 @@
         wrapper.appendChild(dateOverlay);
       }
 
-      // ----- CLICK -----
+      // ----- CLICK (opens external links in new tab) -----
       wrapper.addEventListener('click', function(e) {
         if (p.link) {
-          window.location.href = p.link;
+          if (p.link.startsWith('http://') || p.link.startsWith('https://')) {
+            window.open(p.link, '_blank');
+          } else {
+            window.location.href = p.link;
+          }
         } else {
           alert(`📁 Work: ${p.title}\nCategory: ${p.category}\nDate: ${p.date}`);
         }
